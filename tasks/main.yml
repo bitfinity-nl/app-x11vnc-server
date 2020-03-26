@@ -3,6 +3,7 @@
   # Supported OS:
   #   - Ubuntu 16.04LTSi
   #   - Ubuntu 18.04LTSi
+  #   - Linux Mint 19.3 Tricia
 
   - name: "For OS: Ubuntu 16.04LTS, Arch: amd64"
     import_tasks: ubuntu-1604-amd64.yml
@@ -14,5 +15,11 @@
     import_tasks: ubuntu-1804-amd64.yml
     when:
       - ansible_distribution_version ==  "18.04"
+      - ansible_architecture == "x86_64"
+
+  - name: "For OS: Linux Mint 19.3 Tricia, Arch: amd64"
+    import_tasks: linuxmint-193-amd64.yml
+    when:
+      - ansible_distribution_version ==  "19.3"
       - ansible_architecture == "x86_64"
 
