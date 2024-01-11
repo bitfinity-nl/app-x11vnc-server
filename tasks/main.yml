@@ -3,6 +3,7 @@
   # Supported OS:
   #   - Ubuntu 16.04LTSi
   #   - Ubuntu 18.04LTSi
+  #   - Ubuntu 22.04LTSi
   #   - Debian 10
 
   - name: "For OS: Ubuntu 16.04LTS, Arch: amd64"
@@ -17,6 +18,13 @@
     when:
       - ansible_distribution == "Ubuntu"
       - ansible_distribution_version ==  "18.04"
+      - ansible_architecture == "x86_64"
+
+  - name: "For OS: Ubuntu 22.04LTS, Arch: amd64"
+    import_tasks: ubuntu-2204-amd64.yml
+    when:
+      - ansible_distribution == "Ubuntu"
+      - ansible_distribution_version ==  "22.04"
       - ansible_architecture == "x86_64"
 
   - name: "For OS: Debian 10, Arch: amd64"
